@@ -42,7 +42,7 @@ def createDataFolder(): 								# Data collection function
             print(f"Creating directory {datalocation}")
             os.makedirs(datalocation) 							# Create data file in current directory if none exists
         else:
-            print(f"Directory {datalocation} exists. File will be created there.")
+            print(f"Directory {datalocation} exists. Files will be created there.")
     except Exception as e:
         print("Creating file error: " + str(e))
 
@@ -58,7 +58,7 @@ def collectOrleansCaseData():
         casedata = casedata.drop(locationcol, axis=1) 					# Delete location of interest column
         casedata.to_csv(dailycaseoutput, index=False) 					# Save to current case output file
         copyfile(dailycaseoutput, workingcaseoutput) 					# Copy current case to working file
-        print(f"File OrleansParishCases.csv saved in {datalocation}")
+        print(f"File OrleansParishCases.csv_{timenow_iso} saved in {datalocation}")
     except Exception as e:
         print("Downloading file error: " + str(e))
 
@@ -74,7 +74,7 @@ def collectOrleansDeathData():
         deathdata = deathdata.drop(locationcol, axis=1)
         deathdata.to_csv(dailydeathoutput, index=False)
         copyfile(dailydeathoutput, workingdeathoutput)
-        print(f"File OrleansParishDeaths.csv saved in {datalocation}")
+        print(f"File OrleansParishDeaths.csv_{timenow_iso} saved in {datalocation}")
     except Exception as e:
         print("Downloading file error: " + str(e))
 

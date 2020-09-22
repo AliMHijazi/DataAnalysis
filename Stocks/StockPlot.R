@@ -19,7 +19,7 @@ plotChart()
 
 # Get today's date and get the start and end dates of the subset.
 collectSubsetDates <- function () { 
-    today <- assign('today', Sys.Date(), globalenv()
+    today <- assign('today', Sys.Date(), globalenv())
     subset_start <- assign('subset_start', readline(prompt = paste0("Enter start date (yyyy-mm-dd) [", as.Date(today)-365, "]: ")), globalenv())
     if(subset_start == "") {
         subset_start <- assign('subset_start', as.Date(today)-365, globalenv())
